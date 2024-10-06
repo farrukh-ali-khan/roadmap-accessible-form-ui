@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create an accessible form UI using HTML and CSS. Focus on usability for all users, including those with disabilities."
+    />
+    <title>Accessible Form UI - Build and Get Feedback</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Accessible Form UI</h1>
+      <form id="accessibility-form" onsubmit="handleSubmit(event)" novalidate>
+        <div class="form-group">
+          <label for="full-name">Full Name:</label>
+          <input
+            type="text"
+            id="full-name"
+            aria-required="true"
+            required
+            placeholder="Enter your full name"
+            oninput="updateProgress()"
+          />
+          <span class="error-message" aria-live="assertive"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            aria-required="true"
+            required
+            placeholder="Enter your email"
+            oninput="updateProgress()"
+          />
+          <span class="error-message" aria-live="assertive"></span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            aria-required="true"
+            required
+            placeholder="Enter your password"
+            oninput="updateProgress()"
+          />
+          <button type="button" aria-pressed="false" onclick="togglePassword()">
+            Show/Hide
+          </button>
+          <span class="error-message" aria-live="assertive"></span>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirm-password"
+            aria-required="true"
+            required
+            placeholder="Re-enter your password"
+            oninput="updateProgress()"
+          />
+          <span class="error-message" aria-live="assertive"></span>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress" id="progress-bar"></div>
+          <span id="percentage-text">0%</span>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <ul class="checklist" id="checklist" hidden>
+        <li id="check-full-name">Full Name is provided</li>
+        <li id="check-email">Email is valid</li>
+        <li id="check-password">Password is at least 8 characters</li>
+        <li id="check-match">Passwords match</li>
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
